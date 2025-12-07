@@ -2,26 +2,29 @@
 using namespace std;
 
 int main() {
-    int* a = new int[7];
+   
+    short* a = new short[7];
 
-    // ВВОД
-    for (int i = 0; i < 7; i++) {
+   
+    for (short i = 0; i < 7; i++) {
         cin >> a[i];
     }
 
-    // ПУЗЫРЁК (справа налево)
-    for (int i = 0; i < 7 - 1; i++) {
-        for (int j = 6; j > i; j--) {
+  
+    for (short i = 0; i < 7 - 1; i++) {
+        for (short j = 6; j > i; j--) {
+            
             if (a[j] < a[j - 1]) {
-                int box = a[j];
+             
+                short box = a[j];
                 a[j] = a[j - 1];
                 a[j - 1] = box;
             }
         }
     }
 
-    // ВЫВОД
-    for (int j = 0; j < 7; j++) {
+   
+    for (short j = 0; j < 7; j++) {
         cout << a[j] << " ";
     }
 
