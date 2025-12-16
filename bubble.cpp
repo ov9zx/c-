@@ -2,32 +2,31 @@
 using namespace std;
 
 int main() {
-   
-    short* a = new short[7];
+    int * a = new int[7];
 
-   
     for (short i = 0; i < 7; i++) {
         cin >> a[i];
     }
 
-  
-    for (short i = 0; i < 7 - 1; i++) {
-        for (short j = 6; j > i; j--) {
-            
+    for (short i = 1; i < 7; i++) {
+        int change = 0;
+        for (short j = 6; j >= i; j--) {
             if (a[j] < a[j - 1]) {
-             
-                short box = a[j];
+                int box = a[j];
                 a[j] = a[j - 1];
                 a[j - 1] = box;
+                change++;
             }
+        }
+        if (change == 0) {
+            break;
         }
     }
 
-   
-    for (short j = 0; j < 7; j++) {
-        cout << a[j] << " ";
+    for (short i = 0; i < 7; i++) {
+        cout << a[i] << " ";
     }
-
+    
     delete[] a;
     return 0;
 }
